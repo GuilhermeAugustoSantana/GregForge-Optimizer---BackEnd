@@ -19,6 +19,7 @@ def calcular_quantidade_minerio(dados: dict):
     metaLingotes = dados.get("metaLingotes")
     mineriosSelecionados = dados.get("mineriosSelecionados")
 
+
     resultado = calculaQuantidadeMinerioParaLingote(metaLingotes, mineriosSelecionados)
 
     return {

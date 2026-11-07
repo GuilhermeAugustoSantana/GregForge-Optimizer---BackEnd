@@ -14,7 +14,7 @@ def calculaQuantidadeMinerioParaLingote(meta_lingotes, minerios):
         return resultado
 
     totalMbLingoteMeta = meta_lingotes * 144
-    MbValores = [mineiro["mb_value"] for mineiro in minerios]
+    MbValores = [mineiro["mb"] for mineiro in minerios]
 
     QuantidadeMaxima = math.ceil(totalMbLingoteMeta / min(MbValores))
     quantidadeMinima = math.ceil(totalMbLingoteMeta / max(MbValores))
@@ -31,9 +31,9 @@ def calculaQuantidadeMinerioParaLingote(meta_lingotes, minerios):
                     MenorSobra = sobra
                     melhor_combinacao = combinacoes
 
-    resultado = {"minérios necessários": {}, "desperdício_mb": MenorSobra}
+    resultado = {"minérios necessários": {}, "desperdício_mb": MenorSobra | 0 }
     resultado["minérios necessários"] = {
-        minerio["name"]: melhor_combinacao.count(minerio["mb_value"])
+        minerio["nome"]: melhor_combinacao.count(minerio["mb"])
         for minerio in minerios
     }
 
