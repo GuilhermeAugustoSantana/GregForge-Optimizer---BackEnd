@@ -1,0 +1,231 @@
+{
+  "metals": {
+    "copper": {
+      "name": "Cobre",
+      "minerals": {
+        "native_copper": {
+          "name": "Cobre nativo",
+          "dusts": {
+            "tiny": {
+              "name": "Tiny pile of copper",
+              "mb_value": 16
+            },
+            "small": {
+              "name": "Small pile of copper",
+              "mb_value": 36
+            },
+            "dust": {
+              "name": "Copper",
+              "mb_value": 144
+            }
+          },
+          "raw": {
+            "purity_levels": {
+              "small": {
+                "name": "Small native copper",
+                "mb_value": 16
+              },
+              "poor": {
+                "name": "Poor native copper",
+                "mb_value": 24
+              },
+              "normal": {
+                "name": "Native copper",
+                "mb_value": 36
+              },
+              "rich": {
+                "name": "Rich native copper",
+                "mb_value": 48
+              }
+            }
+          }
+        },
+        "malachite": {
+          "name": "Malaquita",
+          "dusts": {
+            "tiny": {
+              "name": "Tiny pile of malachite",
+              "mb_value": 13
+            },
+            "small": {
+              "name": "Small pile of malachite",
+              "mb_value": 31
+            },
+            "dust": {
+              "name": "malachite",
+              "mb_value": 129
+            }
+          },
+          "raw": {
+            "purity_levels": {
+              "small": {
+                "name": "Small malachite",
+                "mb_value": 16
+              },
+              "poor": {
+                "name": "Poor malachite",
+                "mb_value": 21
+              },
+              "normal": {
+                "name": "Malachite",
+                "mb_value": 31
+              },
+              "rich": {
+                "name": "Rich malachite",
+                "mb_value": 42
+              }
+            }
+          }
+        },
+        "tetrahedrite": {
+          "name": "Tetraedrita",
+          "dusts": {
+            "tiny": {
+              "name": "Tiny pile of tetrahedrite",
+              "mb_value": 13
+            },
+            "small": {
+              "name": "Small pile of tetrahedrite",
+              "mb_value": 31
+            },
+            "dust": {
+              "name": "tetrahedrite",
+              "mb_value": 129
+            }
+          },
+          "raw": {
+            "purity_levels": {
+              "small": {
+                "name": "Small tetrahedrite",
+                "mb_value": 16
+              },
+              "poor": {
+                "name": "Poor tetrahedrite",
+                "mb_value": 21
+              },
+              "normal": {
+                "name": "Tetrahedrite",
+                "mb_value": 31
+              },
+              "rich": {
+                "name": "Rich tetrahedrite",
+                "mb_value": 42
+              }
+            }
+          }
+        },
+        "chalcocite": {
+          "name": "Calcocita",
+          "dusts": {
+            "tiny": {
+              "name": "Tiny pile of chalcocite",
+              "mb_value": 14
+            },
+            "small": {
+              "name": "Small pile of chalcocite",
+              "mb_value": 33
+            },
+            "dust": {
+              "name": "chalcocite",
+              "mb_value": 136
+            }
+          },
+          "raw": {
+            "purity_levels": {
+              "small": {
+                "name": "Não disponivel",
+                "mb_value": null
+              },
+              "poor": {
+                "name": "Poor chalcocite",
+                "mb_value": 22
+              },
+              "normal": {
+                "name": "Chalcocite",
+                "mb_value": 33
+              },
+              "rich": {
+                "name": "Rich chalcocite",
+                "mb_value": 45
+              }
+            }
+          }
+        },
+        "bornite": {
+          "name": "Bornita",
+          "dusts": {
+            "tiny": {
+              "name": "Tiny pile of bornite",
+              "mb_value": 13
+            },
+            "small": {
+              "name": "Small pile of bornite",
+              "mb_value": 31
+            },
+            "dust": {
+              "name": "bornite",
+              "mb_value": 128
+            }
+          },
+          "raw": {
+            "purity_levels": {
+              "small": {
+                "name": "Não disponivel",
+                "mb_value": null
+              },
+              "poor": {
+                "name": "Small bornite",
+                "mb_value": 21
+              },
+              "normal": {
+                "name": "Bornite",
+                "mb_value": 31
+              },
+              "rich": {
+                "name": "Rich bornite",
+                "mb_value": 42
+              }
+            }
+          }
+        },
+        "chalcopyrite": {
+          "name": "Calcopirita",
+          "dusts": {
+            "tiny": {
+              "name": "Tiny pile of chalcopyrite",
+              "mb_value": 13
+            },
+            "small": {
+              "name": "Small pile of chalcopyrite",
+              "mb_value": 30
+            },
+            "dust": {
+              "name": "chalcopyrite",
+              "mb_value": 121
+            }
+          },
+          "raw": {
+            "purity_levels": {
+              "small": {
+                "name": "Não disponivel",
+                "mb_value": null
+              },
+              "poor": {
+                "name": " Poor chalcopyrite",
+                "mb_value": 19
+              },
+              "normal": {
+                "name": "Chalcopyrite",
+                "mb_value": 30
+              },
+              "rich": {
+                "name": "Rich chalcopyrite",
+                "mb_value": 40
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
