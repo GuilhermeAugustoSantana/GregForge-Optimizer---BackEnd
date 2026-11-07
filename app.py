@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.calculador import calculaQuantidadeMinerioParaLingote
-from src.data_manager import CarregarDadosMinerios
+from src.mapear_lista_minerios import mapearListaMinerios
 
 app = FastAPI()
 UrlsPermitidas = ["http://localhost:5173", "http://127.0.0.1:5173"]
@@ -26,3 +26,10 @@ def calcular_quantidade_minerio(dados: dict):
         "minérios necessários": resultado["minérios necessários"],
         "desperdício_mb": resultado["desperdício_mb"],
     }
+
+@app.get("/minerios")
+def mostrar_minerios_disponiveis():
+    minerios = mapearListaMinerios();
+    
+    return minerios;
+    
