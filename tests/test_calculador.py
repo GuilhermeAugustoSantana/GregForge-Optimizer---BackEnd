@@ -4,8 +4,8 @@ from src.calculador import calculaQuantidadeMinerioParaLingote
 def test_CalculoDeLigoteSimples():
     meta_lingotes = 10
     minerios = [
-        {"name": "Native copper", "mb_value": 25},
-        {"name": "Malachite", "mb_value": 35},
+        {"id": "copper_tetrahedrite_dust_dust", "nome": "Native copper", "mb": 25},
+        {"id": "copper_tetrahedrite_dust_small", "nome": "Malachite", "mb": 35},
     ]
 
     resultado = calculaQuantidadeMinerioParaLingote(meta_lingotes, minerios)
@@ -14,6 +14,7 @@ def test_CalculoDeLigoteSimples():
     assert resultado["minérios necessários"]["Malachite"] == 39
 
     assert resultado["desperdício_mb"] == 0
+
 
 def test_ResultadoNãoConseguiuCalcularQuantidade():
     meta_lingotes = 1

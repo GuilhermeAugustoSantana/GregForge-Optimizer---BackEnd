@@ -7,8 +7,8 @@ def test_dados_retornados_pelo_calculo_da_API():
     dados = {
         "metaLingotes": 6,
         "mineriosSelecionados": [
-            {"name": "Native copper", "mb_value": 25},
-            {"name": "Malachite", "mb_value": 35},
+            {"id": "copper_tetrahedrite_dust_dust", "nome": "Native copper", "mb": 25},
+            {"id": "copper_tetrahedrite_dust_small", "nome": "Malachite", "mb": 35},
         ],
     }
     resposta = cliente.post("/calcular", json=dados)
@@ -17,7 +17,7 @@ def test_dados_retornados_pelo_calculo_da_API():
     assert json_resposta["metaLingotes"] == 6
     assert json_resposta["minérios necessários"]["Native copper"] == 1
     assert json_resposta["minérios necessários"]["Malachite"] == 24
-    assert json_resposta["desperdício_mb"] == 1
+    assert json_resposta["desperdicio_mb"] == 1
 
 
 def test_deve_retornar_lista_de_minerios_com_sucesso():
@@ -27,7 +27,7 @@ def test_deve_retornar_lista_de_minerios_com_sucesso():
     listaMinerios = resposta.json()
 
     assert resposta.status_code == 200
-    
+
     assert isinstance(listaMinerios, list)
     assert len(listaMinerios) > 0
 

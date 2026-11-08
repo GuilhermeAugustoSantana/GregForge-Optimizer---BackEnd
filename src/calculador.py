@@ -3,8 +3,6 @@ import math, itertools
 
 def calculaQuantidadeMinerioParaLingote(meta_lingotes, minerios):
 
-    MenorSobra = 999999
-    melhor_combinacao = ()
     resultado = {}
 
     if minerios == []:
@@ -14,27 +12,59 @@ def calculaQuantidadeMinerioParaLingote(meta_lingotes, minerios):
         return resultado
 
     totalMbLingoteMeta = meta_lingotes * 144
-    MbValores = [mineiro["mb"] for mineiro in minerios]
 
-    QuantidadeMaxima = math.ceil(totalMbLingoteMeta / min(MbValores))
-    quantidadeMinima = math.ceil(totalMbLingoteMeta / max(MbValores))
+    MaiorMb = max([minerio["mb"] for minerio in minerios])
+    tamanhoTabela = totalMbLingoteMeta + MaiorMb + 1
 
-    for tamanho_grupo in range(quantidadeMinima, QuantidadeMaxima + 1):
-        totalcombinacoes = itertools.combinations_with_replacement(
-            MbValores, tamanho_grupo
-        )
-        for combinacoes in totalcombinacoes:
-            total_mb = sum(combinacoes)
-            if total_mb >= totalMbLingoteMeta:
-                sobra = total_mb - totalMbLingoteMeta
-                if sobra < MenorSobra:
-                    MenorSobra = sobra
-                    melhor_combinacao = combinacoes
+    dp = [
+        (float("inf"), {minerio["id"]: 0 for minerio in minerios})
+        for _ in range(tamanhoTabela)
+    ]
+    dp[0] = (0, {mineiro["id"]: 0 for mineiro in minerios})
 
-    resultado = {"minérios necessários": {}, "desperdício_mb": MenorSobra | 0 }
-    resultado["minérios necessários"] = {
-        minerio["nome"]: melhor_combinacao.count(minerio["mb"])
-        for minerio in minerios
-    }
+    for valor in range(tamanhoTabela):
+        desperdicioAtual, mineriosUsados = dp[valor]
+        if desperdicioAtual == float("inf"):
+            continue
+
+        for minerio in minerios:
+            mId = minerio["id"]
+            mMb = minerio["mb"]
+            proximoValor = valor + mMb
+
+            if proximoValor < tamanhoTabela:
+                novoDesperdicio = 0
+        
+                if proximoValor < totalMbLingoteMeta:
+                    novoDesperdicio = totalMbLingoteMeta - proximoValor
+                else:
+                    novoDesperdicio = proximoValor - totalMbLingoteMeta
+
+                if novoDesperdicio < dp[proximoValor][0]:
+                    novaQuantidade = mineriosUsados.copy()
+                    novaQuantidade[mId] = novaQuantidade.get(mId, 0) + 1
+                    dp[proximoValor] = (novoDesperdicio, novaQuantidade)
+
+    melhorValor = totalMbLingoteMeta
+    menorDesperdicioFinal = float("inf")
+
+    for valor in range(totalMbLingoteMeta, tamanhoTabela):
+        desperdicioDesseValor, _ = dp[valor]
+
+        if desperdicioDesseValor < menorDesperdicioFinal:
+            menorDesperdicioFinal = desperdicioDesseValor
+            melhorValor = valor
+
+    desperdicioReal = melhorValor - totalMbLingoteMeta
+    mineriosFinaisContagem = dp[melhorValor][1]
+
+    mineriosNecessarios = {}
+    for minerio in minerios:
+        quantidade = mineriosFinaisContagem.get(minerio["id"], 0)
+        if quantidade > 0:
+            mineriosNecessarios[minerio["nome"]] = quantidade
+
+    resultado = {"minérios necessários": {}, "desperdício_mb": desperdicioReal}
+    resultado["minérios necessários"] = mineriosNecessarios
 
     return resultado
