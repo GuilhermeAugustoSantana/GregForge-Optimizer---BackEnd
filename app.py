@@ -19,18 +19,17 @@ def calcular_quantidade_minerio(dados: dict):
     metaLingotes = dados.get("metaLingotes")
     mineriosSelecionados = dados.get("mineriosSelecionados")
 
-
     resultado = calculaQuantidadeMinerioParaLingote(metaLingotes, mineriosSelecionados)
 
     return {
         "metaLingotes": metaLingotes,
         "minérios necessários": resultado["minérios necessários"],
-        "desperdício_mb": resultado["desperdício_mb"],
+        "desperdicio_mb": resultado["desperdício_mb"],
     }
+
 
 @app.get("/minerios")
 def mostrar_minerios_disponiveis():
-    minerios = mapearListaMinerios();
-    
-    return minerios;
-    
+    minerios = mapearListaMinerios()
+
+    return minerios
